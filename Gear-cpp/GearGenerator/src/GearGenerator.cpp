@@ -1,9 +1,7 @@
 #include <GearGenerator.h>
 #include <Util.h>
-#include <godot_cpp/core/class_db.hpp>
-
-void GearGenerator::_bind_methods() {
-}
+#include "GearGenerator.h"
+#include "GearGenerator.h"
 
 GearGenerator::GearGenerator() {
 }
@@ -11,7 +9,7 @@ GearGenerator::GearGenerator() {
 GearGenerator::~GearGenerator() {
 }
 
-std::vector<openstl::Triangle> GearGenerator::generate(GearSpecs gearSpecs) {
+void GearGenerator::generate(GearSpecs gearSpecs) {
     std::vector<openstl::Vec3>verts;
     std::vector<int>indices;
     
@@ -530,10 +528,16 @@ std::vector<openstl::Triangle> GearGenerator::generate(GearSpecs gearSpecs) {
     }
 
     // Stitch verts into triangles
-    std::vector<openstl::Triangle> triangles;
+    //std::vector<openstl::Triangle> triangles;
+    std::size_t triangle_count = indices.size() / 3;
+    triangles.resize(triangle_count);
+    ordered_vectors.resize(indices.size());
     openstl::Triangle triangle;
     for (unsigned int index = 0; index < indices.size(); index++) {
         unsigned int t_point = index % 3;
+        auto ordered_vert = verts[indices[index]];
+        ordered_vectors[index] = godot::Vector3(ordered_vert.x, ordered_vert.y, ordered_vert.z);
+
         switch(t_point) {
         case 0:
             triangle.v0 = verts[indices[index]];
@@ -543,10 +547,18 @@ std::vector<openstl::Triangle> GearGenerator::generate(GearSpecs gearSpecs) {
             break;
         case 2:
             triangle.v2 = verts[indices[index]];
-            triangles.push_back(triangle);
+            triangles[index / 3] = triangle;
             break;
         }
     }
+}
 
+const std::vector<openstl::Triangle>& GearGenerator::GetTriangles()
+{
     return triangles;
+}
+
+const godot::PackedVector3Array& GearGenerator::GetVectors()
+{
+    return ordered_vectors;
 }

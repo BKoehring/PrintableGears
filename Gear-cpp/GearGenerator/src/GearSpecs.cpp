@@ -2,33 +2,6 @@
 #include <cmath>
 #include <Util.h>
 
-void GearSpecs::_bind_methods() {
-	godot::ClassDB::bind_method(godot::D_METHOD("SetModule", "gear_module"), &GearSpecs::SetModule);
-	godot::ClassDB::bind_method(godot::D_METHOD("GetModule"), &GearSpecs::GetModule);
-
-	godot::ClassDB::bind_method(godot::D_METHOD("SetNumberOfTeeth", "teeth_num"), &GearSpecs::SetNumberOfTeeth);
-	godot::ClassDB::bind_method(godot::D_METHOD("GetNumberOfTeeth"), &GearSpecs::GetNumberOfTeeth);
-
-	godot::ClassDB::bind_method(godot::D_METHOD("SetWidth", "width"), &GearSpecs::SetWidth);
-	godot::ClassDB::bind_method(godot::D_METHOD("GetWidth"), &GearSpecs::GetWidth);
-
-	godot::ClassDB::bind_method(godot::D_METHOD("SetProfileShift", "profileShift"), &GearSpecs::SetProfileShift);
-	godot::ClassDB::bind_method(godot::D_METHOD("GetProfileShift"), &GearSpecs::GetProfileShift);
-
-	godot::ClassDB::bind_method(godot::D_METHOD("SetPressureAngle", "pressureAngle"), &GearSpecs::SetPressureAngle);
-	godot::ClassDB::bind_method(godot::D_METHOD("GetPressureAngle"), &GearSpecs::GetPressureAngle);
-
-	godot::ClassDB::bind_method(godot::D_METHOD("SetInvoluteSteps", "involuteSteps"), &GearSpecs::SetInvoluteSteps);
-	godot::ClassDB::bind_method(godot::D_METHOD("GetInvoluteSteps"), &GearSpecs::GetInvoluteSteps);
-
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::FLOAT, "_module", godot::PROPERTY_HINT_RANGE, "0.1,50.0,0.01"), "SetModule", "GetModule");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "_number_of_teeth", godot::PROPERTY_HINT_RANGE, "8,100,1"), "SetNumberOfTeeth", "GetNumberOfTeeth");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::FLOAT, "_width", godot::PROPERTY_HINT_RANGE, "0.01,700.0,0.01"), "SetWidth", "GetWidth");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::FLOAT, "_profile_shift", godot::PROPERTY_HINT_RANGE, "0.0,10.0,0.01"), "SetProfileShift", "GetProfileShift");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::FLOAT, "_pressure_angle", godot::PROPERTY_HINT_RANGE, "14.5,25.0,0.01"), "SetPressureAngle", "GetPressureAngle");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "_involute_steps", godot::PROPERTY_HINT_RANGE, "4,50,1"), "SetInvoluteSteps", "GetInvoluteSteps");
-}
-
 GearSpecs::GearSpecs() : 
 	_module{ 10 },
 	_number_of_teeth{24},

@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://ddrmpa21calvp"]
+
+[ext_resource type="Script" uid="uid://csarq5iecdv44" path="res://printable_gear.gd" id="1_duas3"]
+[ext_resource type="Script" uid="uid://bt2gp4fvwilkm" path="res://Scenes/App.gd" id="1_pk1ey"]
+[ext_resource type="Theme" uid="uid://djsykvo4ul6cu" path="res://Themes/BaseTheme.tres" id="3_wls7n"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_duas3"]
+
+[node name="App" type="Node" unique_id=543694170]
+script = ExtResource("1_pk1ey")
+
+[node name="PrintableGear" type="PrintableGear" parent="." unique_id=1058112743]
+script = ExtResource("1_duas3")
+
+[node name="PreviewGearMesh" type="MeshInstance3D" parent="PrintableGear" unique_id=853448740]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("ArrayMesh_duas3")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1879982761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 250)
+
+[node name="Control" type="Control" parent="." unique_id=1035378355]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=877592464]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wls7n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1794731478]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1826358979]
+layout_mode = 2
+
+[node name="MenuBar" type="MenuBar" parent="Control/MarginContainer/VBoxContainer/PanelContainer2" unique_id=1609294209]
+layout_mode = 2
+
+[node name="File" type="PopupMenu" parent="Control/MarginContainer/VBoxContainer/PanelContainer2/MenuBar" unique_id=354598345]
+oversampling_override = 1.0
+size = Vector2i(134, 100)
+item_count = 1
+item_0/text = "Export to stl"
+item_0/id = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1829730361]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/PanelContainer" unique_id=4601411]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("3_wls7n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=2049892203]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=830561816]
+layout_mode = 2
+alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1538317760]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Module"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ModuleInput" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1523632459]
+layout_mode = 2
+size_flags_horizontal = 8
+min_value = 0.1
+max_value = 50.0
+step = 0.01
+value = 10.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=576086841]
+layout_mode = 2
+alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1801074098]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Number of teeth"
+fit_content = true
+autowrap_mode = 0
+
+[node name="NumTeethInput" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1828214178]
+layout_mode = 2
+min_value = 8.0
+value = 24.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1772885272]
+layout_mode = 2
+alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=892202934]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Width"
+fit_content = true
+autowrap_mode = 0
+
+[node name="WidthInput" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1023865770]
+layout_mode = 2
+min_value = 0.01
+max_value = 700.0
+step = 0.01
+value = 15.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1851924349]
+layout_mode = 2
+alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=795403938]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Profile Shift"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ProfileShiftInput" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=495090910]
+layout_mode = 2
+max_value = 10.0
+step = 0.01
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=706156839]
+layout_mode = 2
+alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=675068929]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pressure Angle"
+fit_content = true
+autowrap_mode = 0
+
+[node name="PressureAngleInput" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1024799286]
+layout_mode = 2
+min_value = 14.5
+max_value = 25.0
+step = 0.01
+value = 20.0
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=184655506]
+layout_mode = 2
+alignment = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=11231329]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Involute Steps"
+fit_content = true
+autowrap_mode = 0
+
+[node name="InvoluteStepsInput" type="SpinBox" parent="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=1511477094]
+layout_mode = 2
+min_value = 4.0
+max_value = 50.0
+value = 4.0
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=1838350085]
+oversampling_override = 1.0
+title = "Export"
+ok_button_text = "Export"
+filters = PackedStringArray("*.stl")
+
+[connection signal="gear_property_changed" from="PrintableGear" to="PrintableGear" method="_on_gear_property_changed"]
+[connection signal="id_pressed" from="Control/MarginContainer/VBoxContainer/PanelContainer2/MenuBar/File" to="." method="_on_file_id_pressed"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ModuleInput" to="." method="_on_module_input_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/NumTeethInput" to="." method="_on_num_teeth_input_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/WidthInput" to="." method="_on_width_input_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4/ProfileShiftInput" to="." method="_on_profile_shift_input_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5/PressureAngleInput" to="." method="_on_pressure_angle_input_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6/InvoluteStepsInput" to="." method="_on_involute_steps_input_value_changed"]

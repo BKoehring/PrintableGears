@@ -1,18 +1,22 @@
 #pragma once
 
-#include <godot_cpp/classes/node.hpp>
 #include <stl.h>
 #include <GearSpecs.h>
 #include <vector>
+#include <godot_cpp/variant/packed_vector3_array.hpp>
 
-class GearGenerator : public godot::Node {
-	GDCLASS(GearGenerator, godot::Node)
+class GearGenerator {
 
-protected:
-	static void _bind_methods();
 public:
 	GearGenerator();
 	~GearGenerator();
 
-	std::vector<openstl::Triangle> generate(GearSpecs gearSpecs);
+	void generate(GearSpecs gearSpecs);
+
+	const std::vector<openstl::Triangle>& GetTriangles();
+	const godot::PackedVector3Array& GetVectors();
+
+private:
+	std::vector<openstl::Triangle> triangles;
+	godot::PackedVector3Array ordered_vectors;
 };

@@ -1,6 +1,6 @@
 #include "register_types.h"
 
-#include "GearGenerator.h"
+#include "PrintableGear.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -13,8 +13,7 @@ void initialize_module(ModuleInitializationLevel p_level) {
 		return;
 	}
 
-	GDREGISTER_CLASS(GearGenerator);
-	GDREGISTER_CLASS(GearSpecs);
+	GDREGISTER_CLASS(PrintableGear);
 }
 
 void uninitialize_module(ModuleInitializationLevel p_level) {

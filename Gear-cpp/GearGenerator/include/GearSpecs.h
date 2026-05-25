@@ -1,12 +1,6 @@
 #pragma once
 
-#include <godot_cpp/classes/node.hpp>
-
-class GearSpecs : public godot::Node {
-	GDCLASS(GearSpecs, godot::Node)
-
-protected:
-	static void _bind_methods();
+class GearSpecs {
 
 public:
 	const unsigned int CENTER_RINGS = 2;
