@@ -49,6 +49,8 @@ elif env["platform"] == "ios":
             source=sources,
         )
 else:
+    if env["platform"] == "linux":
+        env["CXXFLAGS"]=['-std=c++20']
     library = env.SharedLibrary(
         "Gears_gd/bin/libprintablegears{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
         source=sources,
