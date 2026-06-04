@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://csarq5iecdv44" path="res://Scripts/printable_gear.gd" id="1_duas3"]
 [ext_resource type="Script" uid="uid://bt2gp4fvwilkm" path="res://Scripts/App.gd" id="1_pk1ey"]
 [ext_resource type="Theme" uid="uid://djsykvo4ul6cu" path="res://Themes/BaseTheme.tres" id="3_wls7n"]
+[ext_resource type="Shader" uid="uid://buassvwthf70d" path="res://Shaders/preview_gear_shader.gdshader" id="3_wspst"]
 [ext_resource type="Script" uid="uid://rm1srwi0s5cm" path="res://Scripts/camera_gimble.gd" id="4_3imev"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3imev"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6cdy"]
+render_priority = 0
+shader = ExtResource("3_wspst")
+shader_parameter/color = Color(0.8, 0.8, 0.8, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_duas3"]
 
@@ -30,7 +34,7 @@ script = ExtResource("1_duas3")
 
 [node name="PreviewGearMesh" type="MeshInstance3D" parent="PrintableGear" unique_id=853448740]
 transform = Transform3D(0.01, 0, 0, 0, -4.3711387e-10, -0.01, 0, 0.01, -4.3711387e-10, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_3imev")
+material_override = SubResource("ShaderMaterial_v6cdy")
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_duas3")
 
