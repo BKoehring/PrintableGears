@@ -58,7 +58,7 @@ void GearSpecs::UpdateBaseRadius() {
 }
 
 void GearSpecs::UpdateTipDiameter() {
-	_tip_diameter = _reference_diameter + 2 * _module * (1 + _profile_shift);
+	_tip_diameter = _reference_diameter + 2.0 * _module * (1.0 + _profile_shift);
 	UpdateTipRadius();
 	UpdateTipPressureAngle();
 }

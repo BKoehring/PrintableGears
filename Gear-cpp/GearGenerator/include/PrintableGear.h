@@ -36,7 +36,9 @@ public:
 
 	void RefreshGearMesh();
 
-	const godot::PackedVector3Array& GetVectors();
+	const godot::PackedVector3Array& GetVerts();
+	const godot::PackedVector3Array& GetNormals();
+	const godot::PackedInt32Array& GetIndices();
 
 private:
 	GearSpecs specs;

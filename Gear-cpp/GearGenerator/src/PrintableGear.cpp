@@ -22,14 +22,16 @@ void PrintableGear::_bind_methods() {
 
 	godot::ClassDB::bind_method(godot::D_METHOD("SaveFile", "fileName"), &PrintableGear::SaveFile);
 
-	godot::ClassDB::bind_method(godot::D_METHOD("GetVectors"), &PrintableGear::GetVectors);
+	godot::ClassDB::bind_method(godot::D_METHOD("GetVerts"), &PrintableGear::GetVerts);
+	godot::ClassDB::bind_method(godot::D_METHOD("GetNormals"), &PrintableGear::GetNormals);
+	godot::ClassDB::bind_method(godot::D_METHOD("GetIndices"), &PrintableGear::GetIndices);
 
 	ADD_SIGNAL(godot::MethodInfo("gear_property_changed", godot::PropertyInfo(godot::Variant::OBJECT, "node")));
 
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::FLOAT, "_module", godot::PROPERTY_HINT_RANGE, "0.1,50.0,0.01"), "SetModule", "GetModule");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "_number_of_teeth", godot::PROPERTY_HINT_RANGE, "8,100,1"), "SetNumberOfTeeth", "GetNumberOfTeeth");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::FLOAT, "_width", godot::PROPERTY_HINT_RANGE, "0.01,700.0,0.01"), "SetWidth", "GetWidth");
-	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::FLOAT, "_profile_shift", godot::PROPERTY_HINT_RANGE, "0.0,10.0,0.01"), "SetProfileShift", "GetProfileShift");
+	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::FLOAT, "_profile_shift", godot::PROPERTY_HINT_RANGE, "-1.0,1.0,0.01"), "SetProfileShift", "GetProfileShift");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::FLOAT, "_pressure_angle", godot::PROPERTY_HINT_RANGE, "14.5,25.0,0.01"), "SetPressureAngle", "GetPressureAngle");
 	ADD_PROPERTY(godot::PropertyInfo(godot::Variant::INT, "_involute_steps", godot::PROPERTY_HINT_RANGE, "4,50,1"), "SetInvoluteSteps", "GetInvoluteSteps");
 }
@@ -126,7 +128,17 @@ void PrintableGear::RefreshGearMesh()
 	emit_signal("gear_property_changed", this);
 }
 
-const godot::PackedVector3Array& PrintableGear::GetVectors()
+const godot::PackedVector3Array& PrintableGear::GetVerts()
 {
-	return generator.GetVectors();
+	return generator.GetVerts();
+}
+
+const godot::PackedVector3Array& PrintableGear::GetNormals()
+{
+	return generator.GetNormals();
+}
+
+const godot::PackedInt32Array& PrintableGear::GetIndices()
+{
+	return generator.GetIndices();
 }

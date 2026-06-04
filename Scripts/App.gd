@@ -2,12 +2,12 @@ extends Node
 
 @onready var printable_gear = $PrintableGear
 
-@onready var module_input = $Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ModuleInput
-@onready var num_teeth_input = $Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/NumTeethInput
-@onready var width_input = $Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/WidthInput
-@onready var profile_shift_input = $Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4/ProfileShiftInput
-@onready var pressure_angle_input = $Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5/PressureAngleInput
-@onready var involute_steps_input = $Control/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6/InvoluteStepsInput
+@onready var module_input = $MainUI/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ModuleInput
+@onready var num_teeth_input = $MainUI/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/NumTeethInput
+@onready var width_input = $MainUI/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/WidthInput
+@onready var profile_shift_input = $MainUI/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4/ProfileShiftInput
+@onready var pressure_angle_input = $MainUI/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5/PressureAngleInput
+@onready var involute_steps_input = $MainUI/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6/InvoluteStepsInput
 
 @onready var file_dialog = $FileDialog
 
